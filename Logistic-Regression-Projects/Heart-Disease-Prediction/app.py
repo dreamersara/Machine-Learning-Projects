@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 import joblib
 import numpy as np
 
-# before running we need to install sckit without it python will not discover the model
-
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Load the trained model
 model = joblib.load('heart_disease_model.pkl')
